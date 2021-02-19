@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
+FROM harbor.iiis.co/library/orion-client-2.4.2:cu10.2_cudnn7_ubuntu18.04-base
 
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
@@ -76,12 +76,11 @@ DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
 	&& pip install numpy \
 	&& pip install pandas \
 	&& pip install scipy  \
-        && pip install torchvision==0.5.0 \
+        && pip install torch==1.6.0 \
         && pip install scikit_learn \
 	&& pip install opencv_python \
         && pip install matplotlib \
         && pip install Cython \
-        && pip install tensorflow-gpu==1.14.0 \
 	&& pip install tensorboard \
 	&& pip install tensorboardX \
 	&& pip install pytest-runner \
